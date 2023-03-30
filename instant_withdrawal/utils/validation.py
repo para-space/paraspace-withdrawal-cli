@@ -8,7 +8,7 @@ from eth_typing import (
     BLSSignature,
     HexAddress,
 )
-from eth_utils import is_hex_address, is_checksum_address, to_normalized_address
+from eth_utils import is_hex_address, is_checksum_address, to_normalized_address, remove_0x_prefix
 from py_ecc.bls import G2ProofOfPossession as bls
 from instant_withdrawal.utils.click import pretty_echo
 
@@ -22,8 +22,6 @@ from instant_withdrawal.credentials import (
     ParaSpaceValidatorCredential,
 )
 from instant_withdrawal.utils.constants import (
-    BLS_WITHDRAWAL_PREFIX,
-    ETH1_ADDRESS_WITHDRAWAL_PREFIX,
     PARASPACE_SIGN_DOMAIN,
 )
 from instant_withdrawal.utils.crypto import SHA256
@@ -41,10 +39,12 @@ def verify_sign_data_json(file_folder: str, credentials: Sequence[ParaSpaceValid
 
 
 def validate_sign(sign_data_dict: Dict[str, Any], credential: ParaSpaceValidatorCredential) -> bool:
-    pubkey = BLSPubkey(bytes.fromhex(sign_data_dict['pubkey']))
+    pubkey = BLSPubkey(bytes.fromhex(
+        remove_0x_prefix(sign_data_dict['pubkey'])))
     recipient = sign_data_dict['recipient']
     domain = sign_data_dict['domain']
-    signature = BLSSignature(bytes.fromhex(sign_data_dict['signature']))
+    signature = BLSSignature(bytes.fromhex(
+        remove_0x_prefix(sign_data_dict['signature'])))
 
     # Verify pubkey
     if len(pubkey) != 48:
@@ -116,4 +116,3 @@ def validate_eth1_withdrawal_address(cts: click.Context, param: Any, address: st
     normalized_address = to_normalized_address(address)
     pretty_echo('\n%s\n' % load_text(['msg_ECDSA_hex_addr_withdrawal']))
     return normalized_address
-

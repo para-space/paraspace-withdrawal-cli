@@ -5,8 +5,8 @@ from typing import (
 )
 
 INSTANT_WITHDRAWAL_EXPLANATION='Using ParaSpace ETH instant withdrawal cli, you can verify your NFT recipient by signing a message with your validator key.\n- The message will be signed by your validator key **offline**\n- Then you should save the signature and sent to the ParaSpace.\n- The ParaSpace will verify the signature and mint the NFT to your recipient address.'
-PARASPACE_SIGN_CLI_VERSION = '1.0.0'
-PARASPACE_SIGN_DOMAIN = 'Paraspace'
+PARASPACE_SIGN_CLI_VERSION = '1.0.1'
+PARASPACE_SIGN_DOMAIN = 'ParaSpace'
 
 ZERO_BYTES32 = b'\x00' * 32
 

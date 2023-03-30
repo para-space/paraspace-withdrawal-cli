@@ -1,3 +1,4 @@
+import binascii
 import simplejson as json
 import os
 import time
@@ -6,7 +7,6 @@ from enum import Enum
 from typing import Dict, List, Optional
 from eth_typing import Address, HexAddress
 from eth_utils import to_canonical_address, encode_hex, to_checksum_address, remove_0x_prefix
-import jsonpickle
 from py_ecc.bls import G2ProofOfPossession as bls
 from instant_withdrawal.key_handling.key_derivation.path import mnemonic_and_path_to_key
 from instant_withdrawal.utils.click import pretty_text
@@ -17,6 +17,7 @@ from instant_withdrawal.utils.ssz import (
     ValidatorProfileSigningMessage,
     ValidatorProfileSignedData,
 )
+
 
 class WithdrawalType(Enum):
     BLS_WITHDRAWAL = 0
@@ -108,7 +109,8 @@ class ParaSpaceValidatorCredential:
     def paraspace_signed_data(self) -> ValidatorProfileSignedData:
         signed_data = ValidatorProfileSignedData(
             **self.paraspace_sign_message.as_dict(),
-            signature=bls.Sign(self.signing_sk, self.paraspace_sign_message.msg_hash)
+            signature=bls.Sign(
+                self.signing_sk, self.paraspace_sign_message.msg_hash)
         )
         return signed_data
 
@@ -123,9 +125,12 @@ class ParaSpaceValidatorCredential:
         datum_dict.update({'pubkey': msg.pubkey_hex})
         datum_dict.update({'recipient': msg.recipient})
         datum_dict.update({'domain': msg.domain})
+        datum_dict.update(
+            {'signature': self.paraspace_signed_data.signed_signature})
+        datum_dict.update({'raw_msg_data': msg.raw_msg})
         datum_dict.update({'raw_msg_hash': msg.msg_hash_hex})
-        datum_dict.update({'signature': self.paraspace_signed_data.signed_signature})
-        datum_dict.update({'paraspace_sign_cli_version': PARASPACE_SIGN_CLI_VERSION})
+        datum_dict.update(
+            {'paraspace_sign_cli_version': PARASPACE_SIGN_CLI_VERSION})
         return datum_dict
 
     def sign(self, msg: bytes) -> bytes:
@@ -194,7 +199,6 @@ class ParaSpaceValidatorCredentialList:
     #                            show_percent=False, show_pos=True) as credentials:
     #         return [credential.save_signing_keystore(password=password, folder=folder) for credential in credentials]
 
-
     def export_sign_data_json(self, folder: str) -> str:
         with click.progressbar(self.credentials, label=load_text(['msg_sign_data_creation']),
                                show_percent=False, show_pos=True) as credentials:
@@ -202,7 +206,8 @@ class ParaSpaceValidatorCredentialList:
                 cred.sign_datum_dict for cred in credentials]
         file_folder = os.path.join(
             folder, 'paraspace_sign_data-%i.json' % time.time())
-        print(pretty_text(f"Saving signature to {file_folder}", color='magenta'))
+        print(pretty_text(
+            f"Saving signature to {file_folder}", color='magenta'))
         with open(file_folder, 'w') as f:
             json.dump(paraspace_sign_data, f)
         if os.name == 'posix':
@@ -214,12 +219,16 @@ class ParaSpaceValidatorCredentialList:
             signed_data = credential.paraspace_signed_data
             validator_pubkey = remove_0x_prefix(encode_hex(signed_data.pubkey))
             validator_index = credential.account_index
-            print(pretty_text(f'Signing for {validator_pubkey} (index: {validator_index}):', color='magenta'))
-            print(pretty_text('Recipient(NFT): ' + signed_data.recipient, color='magenta'))
-            print(pretty_text('Signature: ' + signed_data.signed_signature, color='magenta'))
+            print(pretty_text(
+                f'Signing for {validator_pubkey} (index: {validator_index}):', color='magenta'))
+            print(pretty_text('Recipient(NFT): ' +
+                  signed_data.recipient, color='magenta'))
+            print(pretty_text('Signature: ' +
+                  signed_data.signed_signature, color='magenta'))
 
     def show_validator_keys(self):
         for credential in self.credentials:
             print(pretty_text(f'validator index: {credential.account_index}'))
             print(pretty_text('signing_pk: ' + encode_hex(credential.signing_pk)))
-            print(pretty_text('withdraw_pk: ' + encode_hex(credential.withdrawal_pk)))
+            print(pretty_text('withdraw_pk: ' +
+                  encode_hex(credential.withdrawal_pk)))

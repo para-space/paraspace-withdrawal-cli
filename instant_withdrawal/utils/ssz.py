@@ -1,3 +1,4 @@
+import binascii
 from dataclasses import dataclass
 from eth_utils import encode_hex, remove_0x_prefix
 from hashlib import sha256
@@ -6,6 +7,7 @@ from ssz import (
     bytes32,
     bytes96
 )
+
 
 @dataclass
 class ValidatorProfileSigningMessage:
@@ -22,22 +24,27 @@ class ValidatorProfileSigningMessage:
 
     @property
     def pubkey_hex(self):
-        return remove_0x_prefix(encode_hex(self.pubkey))
+        return encode_hex(self.pubkey)
 
     @property
-    def msg_value(self):
-        return f'{self.pubkey.hex()}(pubkey){self.recipient}(recipient){self.domain}(domain)'
+    def raw_msg(self):
+        return binascii.hexlify(self.to_bytes())
+
+    # @property
+    # def msg_value(self):
+    #     return f'{self.pubkey.hex()}(pubkey){self.recipient}(recipient){self.domain}(domain)'
 
     @property
     def msg_hash(self):
-        return sha256(self.to_bytes()).digest()
+        return sha256(self.to_bytes()).hexdigest().encode('utf-8')
 
     @property
     def msg_hash_hex(self):
-        return remove_0x_prefix(encode_hex(self.msg_hash))
+        return encode_hex(self.msg_hash)
 
     def as_dict(self):
         return self.__dict__
+
 
 @dataclass
 class ValidatorProfileSignedData:
@@ -56,7 +63,7 @@ class ValidatorProfileSignedData:
 
     @property
     def signed_signature(self):
-        return remove_0x_prefix(encode_hex(self.signature))
+        return encode_hex(self.signature)
 
     def as_dict(self):
         return self.__dict__
