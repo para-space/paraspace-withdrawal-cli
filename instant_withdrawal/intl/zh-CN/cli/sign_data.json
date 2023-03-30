@@ -1,0 +1,22 @@
+{
+  "sign_data_arguments_decorator": {
+    "num_validators": {
+      "help": "你想进行签名的验证人密钥的数量",
+      "prompt": "请选择您希望为多少个验证人进行ETH instant withdrawal签名"
+    },
+    "folder": {
+      "help": "keystore和签名数据存储的文件夹路径，默认指向 ./validator_keys 目录"
+    },
+    "arg_execution_address": {
+      "help": "将获得一个ParaSpace NFT的20字节（Eth1）的执行层地址",
+      "prompt": "请输入NFT接收者的20字节的执行地址",
+      "confirm": "重复你的NFT接收地址，以便确认",
+      "mismatch": "错误：输入的两个值不匹配。请重新输入"
+    }
+  },
+  "sign_data": {
+    "msg_key_loading": "加载你的密钥...",
+    "msg_signed_success": "\n成功！\n您的签名可以在以下路径找到：",
+    "msg_pause": "\n\n按任意键..."
+  }
+}

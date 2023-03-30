@@ -1,0 +1,19 @@
+{
+  "verify_sign_data_json": {
+    "msg_sign_verification": "验证你的签名：\t"
+  },
+  "validate_password_strength": {
+    "msg_password_length": "密码长度应至少为8。请重新输入"
+  },
+  "validate_int_range": {
+    "err_not_positive_integer": "这不是有效的值，请重新输入你的选择"
+  },
+  "validate_choice": {
+    "err_invalid_choice": "这不是有效的选择之一，请重新输入你的选择"
+  },
+  "validate_eth1_withdrawal_address": {
+    "err_invalid_ECDSA_hex_addr": "给定的Eth1地址不是十六进制的编码形式",
+    "err_invalid_ECDSA_hex_addr_checksum": "给定的Eth1地址不是checksum的编码格式",
+    "msg_ECDSA_hex_addr_withdrawal": "**[警告]你正在设置一个Eth1地址作为你的NFT收件人地址。请确保你对这个地址有控制权**"
+  }
+}

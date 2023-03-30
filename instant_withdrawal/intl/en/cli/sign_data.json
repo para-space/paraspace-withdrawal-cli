@@ -1,0 +1,22 @@
+{
+  "sign_data_arguments_decorator": {
+    "num_validators": {
+      "help": "The number of new validator keys you want to sign",
+      "prompt": "Please choose how many new validators you wish to sign for ETH instant withdrawal"
+    },
+    "folder": {
+      "help": "The folder path for the keystore(s) and signature(s). Pointing to `./validator_keys` by default."
+    },
+    "arg_execution_address": {
+      "help": "The 20-byte (Eth1) execution address that will be minted a NFT",
+      "prompt": "Please enter the 20-byte execution address for the NFT recipient.",
+      "confirm": "Repeat your NFT recipient address for confirmation.",
+      "mismatch": "Error: the two entered values do not match. Please type again."
+    }
+  },
+  "sign_data": {
+    "msg_key_loading": "loading your keys...",
+    "msg_signed_success": "\nSuccess!\nYour signature can be found at: ",
+    "msg_pause": "\n\nPress any key."
+  }
+}

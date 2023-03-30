@@ -1,0 +1,19 @@
+{
+  "verify_sign_data_json": {
+    "msg_sign_verification": "Verifying your signing:\t"
+  },
+  "validate_password_strength": {
+    "msg_password_length": "The password length should be at least 8. Please retype"
+  },
+  "validate_int_range": {
+    "err_not_positive_integer": "That is not a positive integer. Please retype."
+  },
+  "validate_choice": {
+    "err_invalid_choice": "That is not one of the valid choices. Please retype your choice."
+  },
+  "validate_eth1_withdrawal_address": {
+    "err_invalid_ECDSA_hex_addr": "The given Eth1 address is not in hexadecimal encoded form.",
+    "err_invalid_ECDSA_hex_addr_checksum": "The given Eth1 address is not in checksum form.",
+    "msg_ECDSA_hex_addr_withdrawal": "**[Warning] you are setting an Eth1 address as your NFT recipient address. Please ensure that you have control over this address.**"
+  }
+}

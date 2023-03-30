@@ -1,0 +1,24 @@
+{
+  "validate_mnemonic": {
+    "err_invalid_mnemonic": "这不是一个有效的助记词，请检查是否有错别字"
+  },
+  "sign_agreement": {
+    "arg_sign_agreement": {
+      "help": "用现有的助记词来签名"
+    },
+    "arg_mnemonic": {
+      "help": "你用来签名的密钥",
+      "prompt": "请输入以空格分隔的助记词"
+    },
+    "arg_mnemonic_password": {
+      "help": "这是针对助记词的密码，而不是针对keystore的，请加以区分",
+      "prompt": "输入你的助记密码（如果你使用了助记密码，没有就直接按回车键）",
+      "confirm": "重复输入你的助记词密码以进行确认",
+      "mismatch": "您输入的助记符密码不匹配，请重试"
+    },
+    "arg_validator_start_index": {
+      "help": "输入你希望开始生成更多密钥的索引序号\n",
+      "prompt": "输入你希望开始生成更多密钥的索引序号"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "validate_mnemonic": {
+    "err_invalid_mnemonic": "That is not a valid mnemonic, please check for typos."
+  },
+  "sign_agreement": {
+    "arg_sign_agreement": {
+      "help": "sign agreement from an existing mnemonic"
+    },
+    "arg_mnemonic": {
+      "help": "The mnemonic that you used to sign your validator agreement",
+      "prompt": "Please enter your mnemonic separated by spaces (\" \")"
+    },
+    "arg_mnemonic_password": {
+      "help": "This is almost certainly not the argument you are looking for: it is for mnemonic passwords, not keystore passwords.",
+      "prompt": "Enter your mnemonic password (if you used one, otherwise just press enter).",
+      "confirm": "Repeat your mnemonic password for confirmation.",
+      "mismatch": "The mnemonic password you entered doesn't match, please try again."
+    },
+    "arg_validator_start_index": {
+      "help": "Enter the index (key number) you wish to start generating more keys from.\n",
+      "prompt": "Enter the index (key number) you wish to start generating more keys from."
+    }
+  }
+}
