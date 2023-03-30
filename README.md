@@ -29,3 +29,7 @@ TODO
 ### For Windows user
 
 TODO
+
+### Acknowledgement
+
+- https://github.com/ethereum/staking-deposit-cli
