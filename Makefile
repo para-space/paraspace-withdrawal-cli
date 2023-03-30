@@ -9,5 +9,4 @@ install-local:
 
 build_macos:
 	python -m pip install -r ./build_configs/macos/requirements.txt
-	export PYTHONHASHSEED=42;
 	pyinstaller ./build_configs/macos/build.spec;
