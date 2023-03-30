@@ -2,10 +2,10 @@ init:
 	python3 -m pip install -r ./requirements.txt
 
 install:
-	sudo python3 setup.py install
+	python3 setup.py install
 
 install-local:
-	sudo python3 -m pip install -v -e .
+	python3 -m pip install -v -e .
 
 sign:
 	./sign.sh sign-agreement

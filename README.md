@@ -10,6 +10,8 @@
 
 ## Usage
 
+> If you are getting permission denied errors when handling your keystores, consider changing which user/group owns the file (with chown) or, if need be, change the file permissions with chmod.
+
 ### Run From Source
 
 #### Build Requirements
@@ -36,19 +38,29 @@ make sign
 
 1. See [releases page](https://github.com/para-space/paraspace-withdrawal-cli/releases) to download and decompress the corresponding binary files.
 
-   - `wget https://github.com/para-space/paraspace-withdrawal-cli/releases/download/v1.0.1/paraspace-withdrawal-cli-c67c1fa-darwin-amd64.tar.gz`
+   - `wget https://github.com/para-space/paraspace-withdrawal-cli/releases/download/v1.0.1/paraspace-withdrawal-cli-c67c1fa-darwin-arm64.tar.gz`
 
 2. Unzip the file
 
-   - `tar -zxvf paraspace-withdrawal-cli-c67c1fa-darwin-amd64.tar.gz`
+   - `tar -zxvf paraspace-withdrawal-cli-c67c1fa-darwin-arm64.tar.gz`
 
 3. Run the executable file
-   > If you are getting permission denied errors when handling your keystores, consider changing which user/group owns the file (with chown) or, if need be, change the file permissions with chmod.
+
    - `./sign sign-agreement`
 
 #### For Linux user
 
-TODO
+1. See [releases page](https://github.com/para-space/paraspace-withdrawal-cli/releases) to download and decompress the corresponding binary files.
+
+   - `wget https://github.com/para-space/paraspace-withdrawal-cli/releases/download/v1.0.1/paraspace-withdrawal-cli-c67c1fa-linux-amd64.tar.gz`
+
+2. Unzip the file
+
+   - `tar -zxvf paraspace-withdrawal-cli-c67c1fa-linux-amd64.tar.gz`
+
+3. Run the executable file
+
+   - `./sign sign-agreement`
 
 #### For Windows user
 
