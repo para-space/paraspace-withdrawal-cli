@@ -1,12 +1,15 @@
 init:
-	python -m pip install -r ./requirements.txt
+	python3 -m pip install -r ./requirements.txt
 
 install:
-	python setup.py install
+	sudo python3 setup.py install
 
 install-local:
-	python -m pip install -v -e .
+	sudo python3 -m pip install -v -e .
+
+sign:
+	./sign.sh sign-agreement
 
 build_macos:
-	python -m pip install -r ./build_configs/macos/requirements.txt
+	python3 -m pip install -r ./build_configs/macos/requirements.txt
 	pyinstaller ./build_configs/macos/build.spec;
