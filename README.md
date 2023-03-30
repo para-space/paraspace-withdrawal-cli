@@ -12,11 +12,11 @@ The ParaSpace Withdrawal CLI is a command-line interface tool designed to simpli
 
 1. See [releases page](https://github.com/para-space/paraspace-withdrawal-cli/releases) to download and decompress the corresponding binary files.
 
-   - `wget wget https://github.com/para-space/paraspace-withdrawal-cli/releases/download/v1.0.0/paraspace-withdrawal-cli-26693b5-darwin-amd64.tar.gz`
+   - `wget https://github.com/para-space/paraspace-withdrawal-cli/releases/download/v1.0.1/paraspace-withdrawal-cli-c67c1fa-darwin-amd64.tar.gz`
 
 2. Unzip the file
 
-   - `tar -zxvf paraspace-withdrawal-cli-26693b5-darwin-amd64.tar.gz`
+   - `tar -zxvf paraspace-withdrawal-cli-c67c1fa-darwin-amd64.tar.gz`
 
 3. Run the executable file
    > If you are getting permission denied errors when handling your keystores, consider changing which user/group owns the file (with chown) or, if need be, change the file permissions with chmod.
