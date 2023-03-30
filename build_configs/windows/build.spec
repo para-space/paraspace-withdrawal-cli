@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['..\\..\\instant_withdrawal\\deposit.py'],
+a = Analysis(['..\\..\\instant_withdrawal\\sign.py'],
              binaries=[],
              datas=[
                  ('..\\..\\instant_withdrawal\\key_handling\\key_derivation\\word_lists\\*.txt', '.\\instant_withdrawal\\key_handling\\key_derivation\\word_lists'),
@@ -25,7 +25,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='deposit',
+          name='sign',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
