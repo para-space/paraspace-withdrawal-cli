@@ -10,6 +10,9 @@ install-local:
 sign:
 	./sign.sh sign-agreement
 
+build_init:
+	export PATH=$PATH:~/.local/bin
+
 build_macos:
 	python3 -m pip install -r ./build_configs/macos/requirements.txt
 	pyinstaller ./build_configs/macos/build.spec;
