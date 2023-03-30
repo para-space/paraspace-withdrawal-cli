@@ -1,0 +1,14 @@
+# Install the requirements for the program
+-r ../../requirements.txt
+
+# Build tools for binary distribution
+pyinstaller==5.9.0
+setuptools==65.5.1
+cffi==1.15.0
+pycparser==2.21
+altgraph==0.17.2
+macholib==1.15.2
+pyinstaller-hooks-contrib==2022.2
+importlib-metadata==4.11.3
+zipp==3.7.0
+typing-extensions==4.1.1
