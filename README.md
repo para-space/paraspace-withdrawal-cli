@@ -1,4 +1,4 @@
-# ParaSpace Withdrawal CLI
+# ParaSpace Withdrawal CLI (Not activated now 🐙)
 
 ## Overview
 
